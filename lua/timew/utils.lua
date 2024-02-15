@@ -1,7 +1,11 @@
 local M = {}
 
 local function manage(command, par1)
-	vim.fn.jobstart({ "timew", command, par1 })
+	if par1 then
+		vim.fn.jobstart({ "timew", command, par1 })
+	else
+		vim.fn.jobstart({ "timew", command })
+	end
 end
 
 M.timew_start = function()
@@ -11,15 +15,15 @@ M.timew_start = function()
 end
 
 M.timew_cancel = function()
-	manage("cancel", "")
+	manage("cancel", nil)
 end
 
 M.timew_stop = function()
-	manage("stop", "")
+	manage("stop", nil)
 end
 
 M.timew_continue = function()
-	manage("continue", "")
+	manage("continue", nil)
 end
 
 M.timew_delete = function()
