@@ -12,7 +12,7 @@ Run timew some timew commands from neovim
 Install timew.nvim with your preferred plugin manager, for example with [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 {
-	"eliasCVII/timew",
+	"eliasCVII/timew.nvim",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 	},
