@@ -12,10 +12,10 @@ Run timew some timew commands from neovim
 Install timew.nvim with your preferred plugin manager, for example with [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 {
-	"eliasCVII/timew.nvim",
-	dependencies = {
-		"MunifTanjim/nui.nvim",
-	},
+    "eliasCVII/timew.nvim",
+    dependencies = {
+        "MunifTanjim/nui.nvim",
+    },
     opts = {
         -- your configuration lives here
         -- leave empty for defaults.
@@ -37,7 +37,7 @@ At the moment, there are two settings that come by default with timew.nvim:
 ## Usage
 ### Commands
 timew.nvim comes with the following commands:
-- `Timew start`: start tracking a new task
+- `Timew start`: start tracking a new task, as input you can type in a single tag or multiple tags separated by commas, i.e, "coding, nvim"
 - `Timew stop`: stop tracking the current task
 - `Timew cancel` cancel tracking the current task
 - `Timew continue`: resume tracking a previously tracked task
@@ -45,7 +45,7 @@ timew.nvim comes with the following commands:
 - `Timew summary`: display a summary of your tracked tasks
 
 ### Keybindings
-By default, timew.nvim doesnt come with any keybindings. Here is some example code to set keybindings.
+By default, timew.nvim doesnt come with any keybindings. Here is some example code to set keybindings:
 ```lua
 -- Set Timew bindings
 vim.keymap.set("n", "<leader>tn", "<Cmd>Timew start<CR>")
