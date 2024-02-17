@@ -5,7 +5,7 @@ Run timew some timew commands from neovim
 
 - [timewarrior](https://timewarrior.net/)
 ## Features
-![showcase](./media/out.gif)
+![showcase](./media/demo.png)
 - run timew from neovim
 - display your timew summary in a floating window
 ## Installation
