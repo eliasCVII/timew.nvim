@@ -4,23 +4,23 @@ Run timew some timew commands from neovim
 ## Requirements
 
 - [timewarrior](https://timewarrior.net/)
-
 ## Features
-- run timew from neovim, set keybindings to automate the process.
+![showcase](./media/showcase.mp4)
+- run timew from neovim
 - display your timew summary in a floating window
 ## Installation
 Install timew.nvim with your preferred plugin manager, for example with [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
-    {
-    	"eliasCVII/timew",
-    	dependencies = {
-    		"MunifTanjim/nui.nvim",
-    	},
-        opts = {
-            -- your configuration lives here
-            -- leave empty for defaults.
-        }
+{
+	"eliasCVII/timew",
+	dependencies = {
+		"MunifTanjim/nui.nvim",
+	},
+    opts = {
+        -- your configuration lives here
+        -- leave empty for defaults.
     }
+}
 ```
 ## Configuration
 At the moment, there are two settings that come by default with timew.nvim:
@@ -34,7 +34,6 @@ At the moment, there are two settings that come by default with timew.nvim:
 }
 
 ```
-
 ## Usage
 ### Commands
 timew.nvim comes with the following commands:
@@ -46,7 +45,7 @@ timew.nvim comes with the following commands:
 - `Timew summary`: display a summary of your tracked tasks
 
 ### Keybindings
-By default, timew.nvim doesnt come with any keybindings, here is some example configuration for keybindings.
+By default, timew.nvim doesnt come with any keybindings. Here is some example code to set keybindings.
 ```lua
 -- Set Timew bindings
 vim.keymap.set("n", "<leader>tn", "<Cmd>Timew start<CR>")
