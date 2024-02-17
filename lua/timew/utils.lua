@@ -13,8 +13,10 @@ M.options = function()
 end
 
 local function manage(command, par1)
-	if par1 then
+	if par1 and type(par1) == "string" then
 		vim.fn.jobstart({ "timew", command, par1 })
+	elseif type(par1) == "table" then
+		vim.fn.jobstart({ "timew", command, table.unpack(par1) })
 	else
 		vim.fn.jobstart({ "timew", command })
 	end
@@ -37,7 +39,15 @@ end
 M.timew_start = function()
 	vim.ui.input({ prompt = "task: " }, function(input)
 		if input then
-			manage("start", input)
+			if string.find(input, ",") then
+				local tags = {}
+				for tag in input:gmatch("[^,]+") do
+					table.insert(tags, tag)
+				end
+				manage("start", tags)
+			else
+				manage("start", input)
+			end
 		end
 	end)
 end
