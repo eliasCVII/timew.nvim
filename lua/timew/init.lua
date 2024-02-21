@@ -7,6 +7,10 @@ local M = {}
 M.config = {
 	summary_sort = "week", -- week, day, month or year
 	delete_sort = "day", -- week, day, month or year
+	size = {
+		width = 75,
+		height = 15,
+	},
 }
 
 M.setup = function(config)
@@ -40,7 +44,7 @@ M.setup = function(config)
 
 		-- Get summary
 		elseif selection == options[6] then
-			summary.timew_popup(M.config.summary_sort)
+			summary.timew_popup(M.config.summary_sort, M.config.size.width, M.config.size.height)
 		end
 
 		--Setup autocompletion when calling the command by the user

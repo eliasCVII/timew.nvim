@@ -28,14 +28,6 @@ local function get_last_track()
 	return tag:lower()
 end
 
-local function getCount(table)
-	local count = 0
-	for _ in pairs(table) do
-		count = count + 1
-	end
-	return count
-end
-
 M.timew_start = function()
 	vim.ui.input({ prompt = "task: " }, function(input)
 		if input then

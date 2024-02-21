@@ -4,15 +4,16 @@ local event = require("nui.utils.autocmd").event
 
 local M = {}
 
-M.timew_popup = function(opts)
+M.timew_popup = function(opts, width, height)
 	local sorter = ":" .. opts
 	local command = { "timew", "summary", ":ids", sorter }
 
+	vim.api.nvim_set_hl(0, "border", { fg = "#dadada" })
 	local popup = Popup({
 		position = "50%",
 		size = {
-			width = 75,
-			height = 10,
+			width = width,
+			height = height,
 		},
 		enter = true,
 		focusable = true,
@@ -42,6 +43,8 @@ M.timew_popup = function(opts)
 			winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
 		},
 	})
+
+	popup.border:set_highlight("border")
 
 	popup:map("n", "q", function()
 		popup:unmount()

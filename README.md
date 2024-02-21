@@ -55,3 +55,6 @@ vim.keymap.set("n", "<leader>tC", "<Cmd>Timew cancel<CR>")
 vim.keymap.set("n", "<leader>td", "<Cmd>Timew delete<CR>")
 vim.keymap.set("n", "<leader>tS", "<Cmd>Timew summary<CR>")
 ```
+
+### More timew for neovim
+Check out the other branch [timew-lualine](https://github.com/eliasCVII/timew.nvim/tree/timew-lualine) for a simple lualine integration of timew
