@@ -64,18 +64,29 @@ local function get_spinner(spinners, tag)
 	return spinner .. "" .. tag
 end
 
+local default_options = {
+	spinners = false,
+}
+
 component.init = function(self, options)
 	component.super.init(self, options)
+	self.options = vim.tbl_deep_extend("force", default_options, options or {})
 end
 
 component.update_status = function(self, options)
 	local tag = get_tag()
-	if get_status() then
-		return "" .. tag
-	-- or return get_spinner(active_spinner, tag)
+	if self.options.spinners then
+		if get_status() then
+			return get_spinner(active_spinner, tag)
+		else
+			return get_spinner(inactive_spinner, "")
+		end
 	else
-		return "󰚌 "
-		-- or return get_spinner(inactive_spinner, tag)
+		if get_status() then
+			return "" .. tag
+		else
+			return "󰚌 "
+		end
 	end
 end
 
