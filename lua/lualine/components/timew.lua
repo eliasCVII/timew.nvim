@@ -17,18 +17,6 @@ local function get_status()
 	end
 end
 
-local active_spinner = {
-	"   ",
-	".  ",
-	".. ",
-	"...",
-}
-
-local inactive_spinner = {
-	"󰒲 ",
-	"󰚌 ",
-}
-
 local function get_tag()
 	local output = vim.fn.system("timew")
 	local tag, total_time
@@ -65,7 +53,20 @@ local function get_spinner(spinners, tag)
 end
 
 local default_options = {
-	spinners = false,
+	spinners = true,
+	active = "",
+	inactive = "󰚌",
+	active_spinner = {
+		"   ",
+		".  ",
+		".. ",
+		"...",
+	},
+
+	inactive_spinner = {
+		"󰒲 ",
+		"󰚌 ",
+	},
 }
 
 component.init = function(self, options)
@@ -77,15 +78,15 @@ component.update_status = function(self, options)
 	local tag = get_tag()
 	if self.options.spinners then
 		if get_status() then
-			return get_spinner(active_spinner, tag)
+			return get_spinner(self.options.active_spinner, tag)
 		else
-			return get_spinner(inactive_spinner, "")
+			return get_spinner(self.options.inactive_spinner, "")
 		end
 	else
 		if get_status() then
-			return "" .. tag
+			return self.options.active .. tag
 		else
-			return "󰚌 "
+			return self.options.inactive
 		end
 	end
 end
